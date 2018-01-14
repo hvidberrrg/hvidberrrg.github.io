@@ -1,0 +1,83 @@
+body {
+    background: #fff;
+    font-style: normal;
+    font: 14pt 'Georgia', 'Times New Roman', serif; 
+    line-height: 1.7;
+    /* font-family: "Helvetica", "Arial", sans-serif; */
+    color: #000;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    position: relative;
+}
+
+/* Header */
+.header {
+    position: relative;
+    top: 0px;
+    width: 100%;
+    height: 80px;
+    margin: 0;
+    background-color: #1C3950;
+}
+
+h1 {
+    position: relative;
+    top: 25px;
+    left: 30px;
+    right: 40px;
+    padding: 0px;
+    margin: 0px;
+    font-family: "Helvetica", "Arial", sans-serif;
+    font-size: 34px;
+    line-height: 1.2;
+    color: #eee;
+    white-space: nowrap;
+    font-weight: 400;
+}
+
+/* Headline */
+h2 {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    right: 40px;
+    color: #1C3950;
+    margin: 25px 0px 20px 0px;
+    padding: 0;
+    font-size: 32px;
+    line-height: 1.2;
+    font-family: "Helvetica", "Arial", sans-serif;
+    border-bottom: 1px solid #666;
+}
+
+/* Body text */
+.bodytext {
+    width: 600px;
+    margin-left: 30px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+/* Margin notes */
+.marginnote {
+    position: absolute;
+    left: 680px;
+    width: 260px;
+    padding: 0;
+    margin: 0;
+    font-size: 9pt;
+    color: #666;
+    display: inline-block;
+}
+
+/* Links */
+a { 
+    color: #2A6EA6;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

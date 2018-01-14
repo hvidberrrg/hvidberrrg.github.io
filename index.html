@@ -1,39 +1,55 @@
-<head>
-<title>Hello World</title>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-112452759-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hello World</title>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112452759-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
 
-  gtag('config', 'UA-112452759-1');
-</script>
-<!-- MathJax -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  TeX: { equationNumbers: { autoNumber: "AMS" } }
-});
-</script>
-<script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-</head>
-<body>
-<h1>Hello World</h1>
-When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
-$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
+            gtag('config', 'UA-112452759-1');
+        </script>
+        <!-- MathJax -->
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+            TeX: { equationNumbers: { autoNumber: "AMS" } }
+            });
+        </script>
+        <script type="text/javascript" async
+                src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+        </script>
+        <!-- Styling -->
+        <link href="css/styling.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="header">
+            <h1>Hello World</h1>
+        </div>
+        <div class="bodytext">
+            When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
+            $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
 
-\begin{equation}
-   E = mc^2
-   \label{eq:E=mc^2}
-\end{equation}
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+            Excepteur* 
+            <span class="marginnote">*This is a note in the margin with lots of interesting details... blah blah blah blah blah blah </span>
+            sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <h2>Blah blah blah</h2>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.    
 
-\begin{equation} \notag
-   e^{\pi i} + 1 = 0
-\end{equation}
+            \begin{equation}
+            E = mc^2
+            \label{eq:E=mc^2}
+            \end{equation}
 
-Please refer to equation \eqref{eq:E=mc^2} for more details.
+            \begin{equation} \notag
+            e^{\pi i} + 1 = 0
+            \end{equation}
 
-
-</body>
+            Please refer to equation \eqref{eq:E=mc^2} for more details.
+        </div>
+    </body>
+</html>
