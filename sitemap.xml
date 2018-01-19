@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" 
+  <!-- The sigmoid function -->
+  <url> 
+    <loc>https://hvidberrrg.github.io/deepLearning/sigmoidFunction.html</loc> 
+    <image:image>
+       <image:loc>https://hvidberrrg.github.io/deepLearning/assets/sigmoid_function.png</image:loc>
+       <image:caption>The elongated 'S'-like curve of the sigmoid function (a.k.a. the logistic function)</image:caption>
+    </image:image>
+    <image:image>
+       <image:loc>https://hvidberrrg.github.io/deepLearning/assets/sigmoid_derivative.png</image:loc>
+       <image:caption>The bell-shaped curve of the derivative of the sigmoid function (a.k.a. the logistic function)</image:caption>
+    </image:image>
+  </url>
+</urlset>
