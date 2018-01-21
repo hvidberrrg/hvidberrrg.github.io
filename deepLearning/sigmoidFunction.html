@@ -33,34 +33,78 @@
         </div>
         <div class="content">
         	<div class="bodytext">
-            <p>The sigmoid function has a characteristic 'S'-like curve and possesses several interesting properties
-            that make it an obvious choice as a threshold function. </p>
-            <p>The sigmoid function is defined as:
+            <p>The sigmoid function is a continuous, monotonically increasing function with a 
+            characteristic 'S'-like curve, and possesses several interesting properties that 
+            make it an obvious choice as an activation function in artificial neural networks. 
+            </p>
+            
+            <p>The domain of the sigmoid function is the set of all real numbers, \(\mathbb{R}\),
+            and it's defined as:
             
             <span class="marginnote"><br/><br/>Please note that equation (1) could just as well
             be written as \(\sigma(x) = \frac{e^x}{{e^x} + 1}\) (seen by multiplying equation
             (1) by \(\frac{e^x}{e^x}\), i.e. multiplying by 1).
             </span>
             $$\begin{equation}
+            \label{eq:sigmoid_function}
             \sigma(x) = \frac{1}{1 + e^{-x}}
             \end{equation}$$
+            </p>
+            
+            <p>
+            The graph of the function illustrates its smooth, gradual transition from values 
+            just above \(0\) to values just below \(1\) - a transition that almost fully occurs
+            in the interval \(-5 \lt x \lt 5\).
             </p>
         
             <div class="figure">
             	<img src="assets/sigmoid_function.png" />
             	<span class="caption">Figure 1: The elongated 'S'-like curve of the sigmoid function</span>
 			</div>
+			
+			<p>
+			From equation \eqref{eq:sigmoid_function} (and the smooth curves of the figure above) it's clear 
+			<span class="marginnote"> *As \(x\) gets larger the value of \(e^{-x}\) tends towards \(0\).
+			</span>
+			that as \(x\) gets larger the value of \(\sigma(x)\) tends towards \(1\)*. Similarly it should be
+		    evident that the limit of \(\sigma(x)\), as \(x\) approaches negative infinity, is \(0\). That is:
+			</p>
 
-            \( \lim_{x \to \infty} \sigma(x) = 1 \)
-            $$
-            \lim_{x \to -\infty} \sigma(x) = 0
-            $$
+            $$\begin{equation}
+            \lim\limits_{x \to \infty} \sigma(x) = 1
+            \end{equation}$$
+            $$\begin{equation}
+            \lim\limits_{x \to -\infty} \sigma(x) = 0
+            \end{equation}$$
             
+            <p>
+            I.e. the range of \(\sigma(x)\) is real numbers in the interval \(]0, 1[\), and there's
+            a "soft step" between the <em>off</em> and <em>on</em> values represented by the extremes 
+            of its range.
+            </p>
+            
+            <h2>The derivative of the sigmoid function</h2>
+            <p>
+            Another interesting feature of the sigmoid function is that it's differentiable (a required
+            trait when back-propagating errors).
+            </p>
+            <p>The derivative itself has a very convenient and beautiful form:</p>
+            
+            $$\begin{equation}
+            \frac{d\sigma(x)}{dx} = \sigma(x)(1 - \sigma(x))
+            \end{equation}$$
+
+            <p>
+            This means that it's very easy to compute the derivative of the sigmoid function if you've 
+            already calculated the sigmoid function itself.
+            </p>
             <div class="figure">
             	<img src="assets/sigmoid_derivative.png" />
             	<span class="caption">Figure 2: The bell-shaped curve of the derivative of the sigmoid function</span>
 			</div>
+			
         	</div>
+        
         	
         	<div class="margin">
         	
