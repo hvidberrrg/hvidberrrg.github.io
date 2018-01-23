@@ -35,15 +35,16 @@
         	<div class="bodytext">
             <p>The sigmoid function is a continuous, monotonically increasing function with a 
             characteristic 'S'-like curve, and possesses several interesting properties that 
-            make it an obvious choice as an activation function in artificial neural networks. 
+            make it an obvious choice as an activation function for nodes in artificial neural 
+            networks. 
             </p>
             
             <p>The domain of the sigmoid function is the set of all real numbers, \(\mathbb{R}\),
             and it's defined as:
             
             <span class="marginnote"><br/><br/>Please note that equation (1) could just as well
-            be written as \(\sigma(x) = \frac{e^x}{{e^x} + 1}\) (seen by multiplying equation
-            (1) by \(\frac{e^x}{e^x}\), i.e. multiplying by 1).
+            be written as \(\sigma(x) = \frac{e^x}{{e^x} + 1}\) (this is seen by multiplying 
+            equation (1) by \(\frac{e^x}{e^x}\), i.e. multiplying by 1).
             </span>
             $$\begin{equation}
             \label{eq:sigmoid_function}
@@ -56,6 +57,10 @@
             just above \(0\) to values just below \(1\) - a transition that almost fully occurs
             in the interval \(-5 \lt x \lt 5\).
             </p>
+            
+            <p>
+            For arguments near \(0\) the sigmoid function approximates a linear function with slope \(\frac{1}{4}\).
+            </p>
         
             <div class="figure">
             	<img src="assets/sigmoid_function.png" />
@@ -64,7 +69,8 @@
 			
 			<p>
 			From equation \eqref{eq:sigmoid_function} (and the smooth curves of the figure above) it's clear 
-			<span class="marginnote"> *As \(x\) gets larger the value of \(e^{-x}\) tends towards \(0\).
+			<span class="marginnote"> *As \(x\) gets larger the value of \(e^{-x}\) tends towards \(0\),
+			and as as \(x\) approaches negative infinity the value of \(e^{-x}\) grows to be infinitely large.
 			</span>
 			that as \(x\) gets larger the value of \(\sigma(x)\) tends towards \(1\)*. Similarly it should be
 		    evident that the limit of \(\sigma(x)\), as \(x\) approaches negative infinity, is \(0\). That is:
@@ -78,12 +84,33 @@
             \end{equation}$$
             
             <p>
-            I.e. the range of \(\sigma(x)\) is real numbers in the interval \(]0, 1[\), and there's
+            I.e. the range of \(\sigma(x)\) are real numbers in the interval \(]0, 1[\), and there's
             a "soft step" between the <em>off</em> and <em>on</em> values represented by the extremes 
             of its range.
             </p>
             
-            <h2>The derivative of the sigmoid function</h2>
+            <p>
+            Also note that \(\sigma(x)\) has rotational symmetry with respect to the point \((0, \frac{1}{2})\), that is:
+            </p>
+            
+            $$\begin{equation}
+            \label{eq:sigmoid_function_symmetry}
+            \sigma(x) + \sigma(-x) = 1
+            \end{equation}$$
+            
+            <p>We'll rely on this property when finding the <a href="#derivative_of_the_sigmoid_function">
+            derivative of the sigmoid function</a>, so let's prove it in detail.
+            </p>
+            
+            $$\begin{align}
+            \sigma(x) + \sigma(-x) &= \frac{1}{1 + e^{-x}} + \frac{1}{1 + e^{-(-x)}} \notag \\
+                      &= (\frac{1 + e^{x}}{1 + e^{x}}) \cdot \frac{1}{1 + e^{-x}} + (\frac{1 + e^{-x}}{1 + e^{-x}}) \cdot\frac{1}{1 + e^{x}} \notag \\
+                      &= \frac{(1 + e^{x}) + (1 + e^{-x})}{(1 + e^{-x}) \cdot (1 + e^{x})} \notag \\
+                      &= \frac{2 + e^{x} + e^{-x}}{1 + e^{x} + e^{-x} + e^{-x+x}} = \frac{2 + e^{x} + e^{-x}}{2 + e^{x} + e^{-x}} \notag \\
+                      &= 1 \notag
+            \end{align}$$
+            
+            <h2 id="derivative_of_the_sigmoid_function">The derivative of the sigmoid function</h2>
             <p>
             Another interesting feature of the sigmoid function is that it's differentiable (a required
             trait when back-propagating errors).
@@ -91,23 +118,53 @@
             <p>The derivative itself has a very convenient and beautiful form:</p>
             
             $$\begin{equation}
-            \frac{d\sigma(x)}{dx} = \sigma(x)(1 - \sigma(x))
+            \label{eq:sigmoid_function_derivative}
+            \frac{d\sigma(x)}{dx} = \sigma(x) \cdot (1 - \sigma(x))
             \end{equation}$$
 
             <p>
             This means that it's very easy to compute the derivative of the sigmoid function if you've 
-            already calculated the sigmoid function itself.
+            already calculated the sigmoid function itself. E.g. when backpropagating errors in a neural 
+            network through a layer of nodes with a sigmoid activation function, \(\sigma(x)\) has already 
+            been computed during the forward pass.
             </p>
+            
             <div class="figure">
             	<img src="assets/sigmoid_derivative.png" />
             	<span class="caption">Figure 2: The bell-shaped curve of the derivative of the sigmoid function</span>
 			</div>
 			
+			<p>
+			Equation \eqref{eq:sigmoid_function_derivative} can be derived as follows:
+			</p>
+			
+			<span class="marginnote"><br/><br/><br/><br/>Here we rely on the composite function rule (a.k.a the
+			chain rule) and the fact that \(\frac{d(e^{x})}{dx}=e^{x}\). The <a target="_blank" href="https://sydney.edu.au/stuserv/documents/maths_learning_centre/compositefunctionrule.pdf">
+			composite function rule</a> says that if \(f(x) = h(g(x))\) then the derivative of \(f\) is
+			\(f'(x) = h'(g(x)) \cdot g'(x)\), or put in plain word: you first differentiate the ‘outside’ 
+			function, and then multiply by the derivative of the ‘inside’ function.
+            </span>
+            
+			$$\begin{align}
+            \frac{d\sigma(x)}{dx} &= \frac{d}{dx}(\frac{1}{1 + e^{-x}}) \notag \\
+                      &= \frac{d}{dx}(1 + e^{-x})^{-1} \notag \\
+                      &=  -(1 + e^{-x})^{-2} \cdot (-e^{-x}) \notag \\
+                      &=  \frac{e^{-x}}{(1 + e^{-x})^{2}} \notag \\
+                      &= \frac{1}{1 + e^{-x}} \cdot \frac{e^{-x}}{1 + e^{-x}} \notag \\
+                      &= \sigma(x) \cdot \sigma(-x) \notag \\ 
+                      &= \sigma(x) \cdot (1 - \sigma(x)) \notag
+            \end{align}$$
+            
+            <p>Where the next to last equality follows directly from equation \eqref{eq:sigmoid_function}
+            (please refer to the margin note for \eqref{eq:sigmoid_function}, for the alternate form of 
+            the sigmoid function), while the last equlity follows directly from \eqref{eq:sigmoid_function_symmetry}.
+            </p>
+			
         	</div>
-        
-        	
+              	
         	<div class="margin">
         	
         	</div>
+        </div>
     </body>
 </html>
