@@ -12,7 +12,6 @@
                 dataLayer.push(arguments);
             }
             gtag('js', new Date());
-
             gtag('config', 'UA-112452759-1');
         </script>
         <!-- MathJax -->
@@ -86,11 +85,16 @@
             <p>
             I.e. the range of \(\sigma(x)\) are real numbers in the interval \(]0, 1[\), and there's
             a "soft step" between the <em>off</em> and <em>on</em> values represented by the extremes 
-            of its range.
+            of its range. As mentioned above the sigmoid function is a function with domain over all \(\mathbb{R}\),
+            so we can sum this up as:
             </p>
-            
+            $$\begin{equation}
+            \sigma : \mathbb{R} \to ]0, 1[
+            \end{equation}$$
+           
             <p>
-            Also note that \(\sigma(x)\) has rotational symmetry with respect to the point \((0, \frac{1}{2})\), that is:
+            Also note that \(\sigma(x)\) has rotational symmetry with respect to the point \((0, \frac{1}{2})\), 
+            and the sum of the sigmoid function and its reflection about the vertical axis, \(\sigma(-x)\) is
             </p>
             
             $$\begin{equation}
@@ -135,7 +139,18 @@
 			</div>
 			
 			<p>
-			Equation \eqref{eq:sigmoid_function_derivative} can be derived as follows:
+			In order to derive equation \eqref{eq:sigmoid_function_derivative} we'll first show:
+			</p>
+			
+			$$\begin{equation}
+			\label{eq:sigmoid_function_derivative_sigma_x_times_sigma_minus_x}
+            \frac{d\sigma(x)}{dx} = \sigma(x) \cdot \sigma(-x)
+			\end{equation}$$
+			
+			<p>
+			Then equation \eqref{eq:sigmoid_function_derivative} follows directly from the above fact combined with 
+			equation \eqref{eq:sigmoid_function_symmetry} (which tells us that \(\sigma(-x) = 1 - \sigma(x)\)).
+			So here goes:
 			</p>
 			
 			<span class="marginnote"><br/><br/><br/><br/>Here we rely on the composite function rule (a.k.a the
@@ -150,14 +165,13 @@
                       &= \frac{d}{dx}(1 + e^{-x})^{-1} \notag \\
                       &=  -(1 + e^{-x})^{-2} \cdot (-e^{-x}) \notag \\
                       &=  \frac{e^{-x}}{(1 + e^{-x})^{2}} \notag \\
-                      &= \frac{1}{1 + e^{-x}} \cdot \frac{e^{-x}}{1 + e^{-x}} \notag \\
+                      &= \frac{1}{1 + e^{-x}} \cdot \frac{e^{-x}}{1 +	 e^{-x}} \notag \\
                       &= \sigma(x) \cdot \sigma(-x) \notag \\ 
-                      &= \sigma(x) \cdot (1 - \sigma(x)) \notag
             \end{align}$$
             
-            <p>Where the next to last equality follows directly from equation \eqref{eq:sigmoid_function}
+            <p>Where the last equality follows directly from equation \eqref{eq:sigmoid_function}
             (please refer to the margin note for \eqref{eq:sigmoid_function}, for the alternate form of 
-            the sigmoid function), while the last equlity follows directly from \eqref{eq:sigmoid_function_symmetry}.
+            the sigmoid function).
             </p>
 			
         	</div>
