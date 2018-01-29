@@ -2,7 +2,9 @@
 <html>
     <head>
         <title>The sigmoid function (a.k.a. the logistic function)</title>
-        <meta name='description' content='An introduction to the features of the sigmoid function (a.k.a. the logistic function) and its derivative' />
+        <meta name='description' content='An introduction is given to the features of the sigmoid function (a.k.a. the 
+        	logistic function) and its derivative that make it attractive as an activation function in artificial neural 
+        	networks. Graphs for both the sigmoid function and the differentiation of same are given' />
         <meta name='keywords' content='Sigmoid function, logistic function, derivative' >
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112452759-1"></script>
@@ -12,6 +14,7 @@
                 dataLayer.push(arguments);
             }
             gtag('js', new Date());
+            
             gtag('config', 'UA-112452759-1');
         </script>
         <!-- MathJax -->
@@ -61,7 +64,7 @@
             For arguments near \(0\) the sigmoid function approximates a linear function with slope \(\frac{1}{4}\).
             </p>
         
-            <div class="figure">
+            <div class="figure" id="fig:sigmoid_function">
             	<img src="assets/sigmoid_function.png" />
             	<span class="caption">Figure 1: The elongated 'S'-like curve of the sigmoid function</span>
 			</div>
@@ -133,13 +136,14 @@
             been computed during the forward pass.
             </p>
             
-            <div class="figure">
+            <div class="figure" id="fig:sigmoid_derivative">
             	<img src="assets/sigmoid_derivative.png" />
             	<span class="caption">Figure 2: The bell-shaped curve of the derivative of the sigmoid function</span>
 			</div>
 			
 			<p>
-			In order to derive equation \eqref{eq:sigmoid_function_derivative} we'll first show:
+			In order to differentiate the sigmoid function as shown in equation \eqref{eq:sigmoid_function_derivative} 
+			we'll first derive:
 			</p>
 			
 			$$\begin{equation}
@@ -153,8 +157,9 @@
 			So here goes:
 			</p>
 			
-			<span class="marginnote"><br/><br/><br/><br/>Here we rely on the composite function rule (a.k.a the
-			chain rule) and the fact that \(\frac{d(e^{x})}{dx}=e^{x}\). The <a target="_blank" href="https://sydney.edu.au/stuserv/documents/maths_learning_centre/compositefunctionrule.pdf">
+			<span class="marginnote"><br/><br/><br/><br/>To differentiate the sigmoid function we rely on the 
+			composite function rule (a.k.a the chain rule) and the fact that \(\frac{d(e^{x})}{dx}=e^{x}\). 
+			The <a target="_blank" href="https://sydney.edu.au/stuserv/documents/maths_learning_centre/compositefunctionrule.pdf">
 			composite function rule</a> says that if \(f(x) = h(g(x))\) then the derivative of \(f\) is
 			\(f'(x) = h'(g(x)) \cdot g'(x)\), or put in plain word: you first differentiate the ‘outside’ 
 			function, and then multiply by the derivative of the ‘inside’ function.
@@ -165,7 +170,7 @@
                       &= \frac{d}{dx}(1 + e^{-x})^{-1} \notag \\
                       &=  -(1 + e^{-x})^{-2} \cdot (-e^{-x}) \notag \\
                       &=  \frac{e^{-x}}{(1 + e^{-x})^{2}} \notag \\
-                      &= \frac{1}{1 + e^{-x}} \cdot \frac{e^{-x}}{1 +	 e^{-x}} \notag \\
+                      &= \frac{1}{1 + e^{-x}} \cdot \frac{e^{-x}}{1 + e^{-x}} \notag \\
                       &= \sigma(x) \cdot \sigma(-x) \notag \\ 
             \end{align}$$
             
@@ -173,7 +178,14 @@
             (please refer to the margin note for \eqref{eq:sigmoid_function}, for the alternate form of 
             the sigmoid function).
             </p>
-			
+            
+            <p>            
+            As should be evident from the <a href="#fig:sigmoid_derivative">graph of the derivative of the sigmoid 
+            function</a> it's symmetric across the vertical axis. This can also easily be seen from equation
+            \eqref{eq:sigmoid_function_derivative_sigma_x_times_sigma_minus_x}, as shown by the following:
+            \(\frac{d\sigma(x)}{dx} = \sigma(x) \cdot \sigma(-x)  = \sigma(-x) \cdot \sigma(-(-x)) = \frac{d\sigma(-x)}{dx}\)
+            </p>
+
         	</div>
               	
         	<div class="margin">
