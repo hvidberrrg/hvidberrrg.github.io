@@ -1,3 +1,4 @@
 *.swp
+.DS_Store
 css/orig.style.css
 tmp/

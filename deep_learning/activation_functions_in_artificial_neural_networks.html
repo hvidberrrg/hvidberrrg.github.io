@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Activation functions in artificial neural networks</title>
+        <meta name='description' content='A discussion on how artificial neural networks are modelled on their 
+        biological counterparts, leading to the need for activation functions that decide when an artifical
+        neuron "fires" a signal. Finally a handful of the most commonly used activation functions (also known as
+        transfer functions) are introduced.' />
+        <meta name='keywords' content='Activation functions, artifical neural networks, deep learning, 
+        biological neural networks, transfer functions' >
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112452759-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-112452759-1');
+        </script>
+        <!-- MathJax -->
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+            TeX: { equationNumbers: { autoNumber: "AMS" } }
+            });
+        </script>
+        <script type="text/javascript" async
+                src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+        </script>
+        <!-- Styling -->
+        <link href="../css/styling.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="header">
+        	<ul class="breadcrumb">
+  				<li><a href="../../index.html">Hvidberrrg@GitHub</a></li>
+  				<li><a href="#">Deep Learning</a></li>
+			</ul>
+            <h1>Activation functions in artificial neural networks</h1>
+        </div>
+        <div class="content">
+        	<div class="bodytext">
+        	
+            <p>The building blocks of artificial neural networks are <a href="#hed:the_artificial_neuron">artificial neurons</a>.
+            These are modelled on their biological counterparts so we'll start out by having a brief (and extremely simplified) 
+            look at these. The aim is to gain a basic understanding of the essential information processing ability of real,
+            biological neurons, while lightly skipping across most of the gory complexity of biological neural nets. 
+            </p>
+            
+            <h2 id="hed:biological_neural_nets">Biological neural nets</h2>
+            
+            <p>A typical biological neuron comprises 
+            <ul>
+            	<li>dendrites, a tree-like structure that receives signals (i.e. information) from other neurons</li>
+            	<li>a cell body that processes the incoming information</li>
+            	<li>an axon that communicates information from the cell body to other neurons via synapses</li>
+            </ul>            
+            </p>
+            
+            <span class="marginnote"><br/><br/>The neuron SEM image is courtesy of <a target="_blank"
+            href="https://www.labri.fr/perso/nrougier/">Nicolas P. Rougier</a> who made it available
+            under a <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative 
+            Commons BY-SA 4.0 license</a>. The image on the left is a color inverted version of the original
+            which you can find <a target="_blank" href="https://www.labri.fr/perso/nrougier/images/NeuronSEM2.png">
+            here</a>, showing amazing details.
+            </span>
+            <div class="figure" id="fig:biological_neuron">
+            	<img src="assets/sem_image_of_biological_neuron.png" alt="Scanning electron microscope (SEM) image of a biological neuron"/>
+            	<span class="caption">Figure 1: Scanning electron microscope (SEM) image of a biological neuron</span>
+			</div>
+			
+			<p>
+			A neuron receives incoming signals from its neighbors through its dendrites, where each of the terminal
+			branches connect to another neuron (this connection is established via a synapse from the axon of the transmitting 
+			neuron). The amount of influence the signal has on the receiving neuron is decided by the synaptic weight 
+			(strength) of the connection between the firing and receiving neuron. The neuron combines the incoming signals 
+			and passes the result on to its axon. If the strength of the resulting signal is above a certain threshold, an 
+			outgoing signal will be passed on (fired) to other neurons via synaptic connections.
+			</p>
+			
+			<p>So in short a neuron exhibits the following behaviour:
+			<ul>
+				<li>it receives weighted input from various other neurons</li>
+				<li>these signals are combined and processed by the receiving neuron</li>
+				<li>if the strength of the resulting signal is above a certain threshold, the neuron
+				fires an output signal to neighboring neurons</li>
+			</ul>
+			</p>
+			
+			<p>In the following we'll use these ideas for modelling artificial neural networks. But as hinted by 
+			the above <a href="#fig:biological_neuron">SEM image of a neuron</a>, biological
+			neural nets can grow extremely complex. It's estimated that the average human brain has about
+			100 billion (\(10^{11}\)) neurons with as many as 1,000 trillion (\(10^{15}\)) synaptic connections -
+			a complexity that current artificial neural networks are not even beginning to be close to match!
+			</p>
+			
+			<h2 id="hed:the_artificial_neuron">The artificial neuron</h2>
+			
+			<p>A very simple model of a <a href="#hed:biological_neural_nets">biological neural network</a>
+			could be represented by a weighted directed graph* featuring some additional capabilities.
+			<span class="marginnote">* A <a target="_blank" href="https://en.wikipedia.org/wiki/Directed_graph">directed graph</a> 
+			is a set of vertices - or nodes - connected by edges, where the edges have a direction associated with them.</a>
+			</p>
+			<p>In this model the artificial equivalent of a biological neuron is represented by a node in the graph. 
+			The edges of the graph correspond to synaptic connections, where the weight of an edge represents the 
+			amplification/dampening of the "signal" that's transmitted along that specific edge. Furthermore each node
+		    has the capability of deciding - based on the combined incoming weighed signals - what signal should be 
+		    passed along its outgoing edges.
+			</p>
+			
+			<p>This "capability of deciding" is implemented by an activation function (sometimes also referred to as a 
+			transfer function) that takes the combined weighted input and computes an output signal. I.e. the activation
+			function can be said to model the behaviour of the axon of a biological neuron.</p>
+			
+            <div class="figure" id="fig:activation_function">
+            	<img src="assets/activation_function_diagram.png" alt="Figure showing a generic activation function (a.k.a. transfer function) in an artificial neural network"/>
+            	<span class="caption">Figure 2: A generic activation function for an artificial neuron</span>
+			</div>
+			
+			<p>The figure above shows \(n\) nodes, emitting values \(x_1\) to \(x_n\) respectively (corresponding
+			to neurons sending signals along their axon). These values are amplified - or dampened - by the weights 
+			(\(w_1\) to \(w_n\)) of the edges transmitting the values (the biological analogy would in this case be
+			synaptic weights influencing the signals between neurons). When the weighted output values are received 
+			by a node, they are added up along with a bias (the bias will be explained later). Finally an activation 
+			function is applied in order to decide the value to be propagated along outgoing edges to other nodes 
+			(this corresponds to a biological neuron combining incoming signals and "deciding" what output should be 
+			fired by its axon to connected neurons).</p>
+			
+			<p>In summary, a generic activation function for an artificial neuron can be described as:</p>
+			
+			$$\begin{equation}
+            \label{eq:activation_function}
+			f(\sum\limits_{i=1}^n w_i x_i + b)
+			\end{equation}$$
+			
+			<p>Where \(x_1, ..,x_n\) are incoming values that are multiplied by their corresponding weights
+			\(w_1\, ..,w_n\) before being added up. Finally a bias, \(b\), is added to the result before
+			the activation function, \(f\), is applied.</p>
+			
+			<p>The activation function, \(f\),  can either be a binary function assuming discrete on/off values, perform
+			a linear transformation to its input, or be a non-linear function. Below you'll find a brief introduction 
+			to some of the most widely used activation functions in artificial neural networks.</p>
+            
+            <h2>Examples of activation functions</h2>
+            
+            <p>Please note this list is currently a work in progress!</p>
+             
+            <table>
+            	<thead>
+            		<tr>
+            			<th width="20%">Name</th>
+            			<th>Description</th>
+            		</tr>
+            	</thead>
+            	<tbody>
+            		<tr>
+            			<td>The sigmoid function</td>
+            			<td><img src="assets/sigmoid_function_thumbnail.png" />
+            			The <a href="activation_functions/sigmoid_function_and_derivative.html">sigmoid function</a>, also
+            			known as the logistic function, is a continuous, differentiable function defined as
+            			\(\sigma(x) = \frac{1}{1 + e^{-x}}\).
+            			
+            			The <a href="activation_functions/sigmoid_function_and_derivative.html#hed:derivative_of_the_sigmoid_function">
+            			derivative of the sigmoid function</a> has a very convenient and beautiful form, 
+            			\(\frac{d\sigma(x)}{dx} = \sigma(x) \cdot (1 - \sigma(x))\), making it well suited for 
+            			back-propagation.
+            			</td>
+            		</tr>
+            	</tbody>
+            </table>
+            
+        	</div>
+        	
+        	<div class="margin">
+        	
+        	</div>
+    </body>
+</html>

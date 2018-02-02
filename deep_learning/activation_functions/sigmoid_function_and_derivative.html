@@ -31,6 +31,11 @@
     </head>
     <body>
         <div class="header">
+            <ul class="breadcrumb">
+  				<li><a href="../../index.html">Hvidberrrg@GitHub</a></li>
+  				<li><a href="#">Deep Learning</a></li>
+  				<li><a href="../activation_functions_in_artificial_neural_networks.html">Activation Functions</a></li>
+			</ul>
             <h1>The sigmoid function (a.k.a. the logistic function) and its derivative</h1>
         </div>
         <div class="content">
@@ -105,7 +110,7 @@
             \sigma(x) + \sigma(-x) = 1
             \end{equation}$$
             
-            <p>We'll rely on this property when finding the <a href="#derivative_of_the_sigmoid_function">
+            <p>We'll rely on this property when finding the <a href="#hed:derivative_of_the_sigmoid_function">
             derivative of the sigmoid function</a>, so let's prove it in detail.
             </p>
             
@@ -117,7 +122,7 @@
                       &= 1 \notag
             \end{align}$$
             
-            <h2 id="derivative_of_the_sigmoid_function">The derivative of the sigmoid function</h2>
+            <h2 id="hed:derivative_of_the_sigmoid_function">The derivative of the sigmoid function</h2>
             <p>
             Another interesting feature of the sigmoid function is that it's differentiable (a required
             trait when back-propagating errors).
@@ -181,7 +186,14 @@
             
             <p>            
             As should be evident from the <a href="#fig:sigmoid_derivative">graph of the derivative of the sigmoid 
-            function</a> it's symmetric across the vertical axis. This can also easily be seen from equation
+            function</a> it's symmetric across the vertical axis, that is:</p>
+            
+            $$\begin{equation}
+            \label{eq:sigmoid_function_derivative_symmetri}
+            \frac{d\sigma(x)}{dx} = \frac{d\sigma(-x)}{dx}
+            \end{equation}$$
+            
+            <p>This can also easily be seen from equation
             \eqref{eq:sigmoid_function_derivative_sigma_x_times_sigma_minus_x}, as shown by the following:
             \(\frac{d\sigma(x)}{dx} = \sigma(x) \cdot \sigma(-x)  = \sigma(-x) \cdot \sigma(-(-x)) = \frac{d\sigma(-x)}{dx}\)
             </p>

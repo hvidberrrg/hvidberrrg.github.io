@@ -20,6 +20,8 @@ body {
     height: 80px;
     margin: 0;
     background-color: #2A5464;
+    line-height: 1.0;
+    color: #eee;
 }
 
 h1 {
@@ -37,7 +39,6 @@ h1 {
     font-size: 34px;
     font-weight: bold;
     line-height: 1.2;
-    color: #eee;
     white-space: nowrap;
 }
 
@@ -104,7 +105,6 @@ a:hover {
 .figure {
 	text-align: center;
 	margin-bottom: 30px;
-
 }
 
 .caption {
@@ -117,4 +117,74 @@ img {
 	padding: 0px;
 	margin-bottom: -25px;
 
+}
+
+/* Breadcrumb */
+ul.breadcrumb { 
+    /* Style the list */
+    position: relative;
+    top: 5px;
+    left: 30px;
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    margin-bottom: -12px
+}
+
+ul.breadcrumb li { 
+    /* Display list items side by side */
+    display: inline;
+    font-size: 12px;
+    
+	padding: 0px;
+    margin: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;}
+
+ul.breadcrumb li+li:before {
+    /* Add a slash symbol (/) before/behind each list item */
+    padding: 10px;
+    content: "\226B";
+}
+
+ul.breadcrumb li a {
+    /* Add a color to all links inside the list */
+    text-decoration: none;
+    color: #eee;
+}
+
+ul.breadcrumb li a:hover {
+    /* Add a color on mouse-over */
+    text-decoration: none;
+}
+
+/* Table */
+table {
+    background-color: #f8f9fa;
+    color: #222;
+    margin: 1em 0;
+    border: 1px solid #a2a9b1;
+    border-collapse: collapse;
+    border-spacing: 2px;
+}
+
+table > * > tr > th {
+    background-color: #eaecf0;
+    text-align: center;
+    font-weight: bold;
+}
+
+table > tr > td, table > * > tr > th, table > * > tr > td {
+    border: 1px solid #a2a9b1;
+    padding: 0.2em 0.4em;
+    display: table-cell;
+    vertical-align: top;
+}
+
+table > tr > td > img, table > * > tr > th > img, table > * > tr > td > img {
+	width: 150px;
+	margin: 0px;
+	float: left;
 }
