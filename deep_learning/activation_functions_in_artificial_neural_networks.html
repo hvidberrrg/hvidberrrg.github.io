@@ -126,8 +126,9 @@
 			</p>
 			
 			<p>This "capability of deciding" is implemented by an activation function (sometimes also referred to as a 
-			transfer function) that takes the combined weighted input and computes an output signal. I.e. the activation
-			function can be said to model the behaviour of the axon of a biological neuron.</p>
+			transfer function) that takes the combined weighted input of the node - called the activation - and 
+		    computes an output signal. I.e. the activation function can be said to model the behaviour of the axon 
+			of a biological neuron.</p>
 			
             <div class="figure" id="fig:activation_function">
             	<img src="assets/activation_function_diagram.png" alt="Figure showing a generic activation function (a.k.a. transfer function) in an artificial neural network"/>
@@ -151,12 +152,16 @@
 			\end{equation}$$
 			
 			<p>Where \(x_1, ..,x_n\) are incoming values that are multiplied by their corresponding weights
-			\(w_1\, ..,w_n\) before being added up. Finally a bias, \(b\), is added to the result before
-			the activation function, \(f\), is applied.</p>
+			\(w_1\, ..,w_n\) before being added up. Then a bias, \(b\), is added to the result to obtain the activation 
+			of the node, and finally the activation function, \(f\), is applied.</p>
 			
 			<p>The activation function, \(f\),  can either be a binary function assuming discrete on/off values, perform
-			a linear transformation to its input, or be a non-linear function. Below you'll find a brief introduction 
-			to some of the most widely used activation functions in artificial neural networks.</p>
+			a linear transformation to its input, or be a non-linear function&dagger;. 
+			<span class="marginnote">&dagger; In a linear system, the output is always proportionally related to the input,  
+			 i.e. small/large changes to the input always result in corresponding small/large changes to the output. Non-linear
+			relations do not obey such a proportionality restraint.</span> 
+			Below you'll find a brief introduction to some of the most widely used activation functions in artificial 
+			neural networks.</p>
             
             <h2>Examples of activation functions</h2>
             
