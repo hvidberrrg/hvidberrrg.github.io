@@ -57,12 +57,12 @@ h2 {
     border-bottom: 1px solid #666;
 }
 
-/* Content area */
+/* CONTENT AREA */
 .content {
 	width: 940px;
 }
 
-/* Body text */
+/* BODY TEXT */
 .bodytext {
     float: left;
     width: 600px;
@@ -71,27 +71,7 @@ h2 {
     margin-bottom: 30px;
 }
 
-/* Margin */
-.margin {
-	margin-top: 10px;
-    float: right;
-    width: 260px;
-}
-
-/* Margin notes */
-.marginnote {
-    position: absolute;
-    left: 680px;
-    width: 260px;
-    padding: 0;
-    margin: 0;
-    font-size: 10pt;
-    color: #666;
-    display: inline-block;
-    border-bottom: 1px solid #666;
-}
-
-/* Links */
+/* Regular links */
 a { 
     color: #2A7896;
     text-decoration: none;
@@ -189,3 +169,58 @@ table > tr > td > img, table > * > tr > th > img, table > * > tr > td > img {
 	margin: 0px;
 	float: left;
 }
+
+/* Bibliography list without bullets */
+ul.bibliography {
+  list-style-type: none;
+  padding-left: 0px;
+}
+
+ul.bibliography li {
+  padding-bottom: 20px;
+}
+
+/* Resource links */
+a.resource{ 
+    color: #2A7896;
+    text-decoration: none;
+    font-size: 18pt;
+	font-weight: bold;
+}
+
+a.resource:hover {
+    text-decoration: underline;
+}
+
+/* MARGIN */
+.margin {
+	margin-top: 10px;
+    float: right;
+    width: 260px;
+}
+
+/* Margin notes */
+.marginnote {
+    position: absolute;
+    left: 680px;
+    width: 260px;
+    padding: 0;
+    margin: 0;
+    font-size: 10pt;
+    color: #666;
+    display: inline-block;
+    border-bottom: 1px solid #666;
+}
+
+/* Margin links */
+a.margin{ 
+    color: #2A7896;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-top: 0px;
+}
+
+a.margin:hover {
+    text-decoration: underline;
+}
+
