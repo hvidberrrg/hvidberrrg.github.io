@@ -2,7 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
   xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" >
 
-
+<!-- 
+######################################################################################## 	
+##  Front page
+########################################################################################    
+-->
+  <url> 
+    <loc>https://hvidberrrg.github.io/index.html</loc>
+  </url>
+  
 <!-- 
 ######################################################################################## 	
 ##  Deep learning and neural networks
