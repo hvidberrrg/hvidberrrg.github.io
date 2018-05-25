@@ -56,3 +56,12 @@
     </image:image>
   </url>
 </urlset>
+
+<!-- 
+######################################################################################## 	
+##  Mathematical Foundations of Deep Learning
+########################################################################################    
+-->
+  <url> 
+    <loc>https://hvidberrrg.github.io/deep_learning/mathematical_foundations_of_deep_learning.html</loc>
+  </url>
