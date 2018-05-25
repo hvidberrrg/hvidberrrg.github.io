@@ -55,7 +55,6 @@
        <image:caption>The bell-shaped curve of the derivative of the sigmoid function (a.k.a. the logistic function)</image:caption>
     </image:image>
   </url>
-</urlset>
 
 <!-- 
 ######################################################################################## 	
@@ -65,3 +64,5 @@
   <url> 
     <loc>https://hvidberrrg.github.io/deep_learning/mathematical_foundations_of_deep_learning.html</loc>
   </url>
+  
+</urlset>
