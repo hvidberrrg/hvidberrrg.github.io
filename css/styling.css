@@ -42,7 +42,7 @@ h1 {
     white-space: nowrap;
 }
 
-/* Headline */
+/* Headlines */
 h2 {
     position: relative;
     top: 0px;
@@ -55,6 +55,12 @@ h2 {
     line-height: 1.2;
     font-family: "Helvetica", "Arial", sans-serif;
     border-bottom: 1px solid #666;
+}
+
+h3 {
+    color: #2A5464;
+    font-size: 24px;
+	font-family: "Helvetica", "Arial", sans-serif;
 }
 
 /* CONTENT AREA */
@@ -217,7 +223,10 @@ a.margin{
     color: #2A7896;
     text-decoration: none;
     text-transform: uppercase;
-    margin-top: 0px;
+    letter-spacing: -1px;
+    line-height: 1.2;
+    margin-top: 5px;
+    margin-bottom:15px;
 }
 
 a.margin:hover {
