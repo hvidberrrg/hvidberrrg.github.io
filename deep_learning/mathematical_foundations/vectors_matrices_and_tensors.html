@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name='description' content='Basic introduction to linear algebra with a focus
+        on vector, matrix, and tensor operations relavant for Deep Learning' />
+        <meta name='keywords' content='Vectors, matrices, tensors, linear algebra' >
+        <title>Vectors, matrices, and tensors</title>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112452759-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-112452759-1');
+        </script>
+        <!-- MathJax -->
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+            TeX: { equationNumbers: { autoNumber: "AMS" } }
+            });
+        </script>
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+        </script>
+        <!-- Styling -->
+        <link href="../../css/styling.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="header">
+            <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+  				<li property="itemListElement" typeof="ListItem">
+  					<a href="../../index.html" property="item" typeof="WebPage">
+  						<span property="name">Hvidberrrg@GitHub</span>
+  					</a>
+  					<meta property="position" content="1">
+  				</li>
+  				<li property="itemListElement" typeof="ListItem">
+  					<a href="../../deep_learning_and_neural_networks.html" property="item" typeof="WebPage">
+  						<span property="name">Deep learning</span>
+  					</a>
+  					<meta property="position" content="2">
+  				</li>
+  				<li property="itemListElement" typeof="ListItem">
+  					<a href="../mathematical_foundations_of_deep_learning.html" property="item" typeof="WebPage">
+  						<span property="name">Mathematical Foundations</span>
+  					</a>
+  					<meta property="position" content="3">
+  				</li>
+  				<li property="itemListElement" typeof="ListItem">
+  					<a href="#" property="item" typeof="WebPage">
+  						<span property="name">Vectors, matrices, and tensors</span>
+  					</a>
+  					<meta property="position" content="4">
+  				</li>
+			</ol>
+            <h1>Vectors, matrices, and tensors</h1>
+        </div>
+        <div class="content">
+        	<div class="bodytext">
+        	<p>This page gives a quick introduction to linear algebra with a dedicated focus 
+        	on the vector and matrix operations used in relation with Deep Learning.
+        	</p>
+        	<h2 id="hed:vectors">Vectors</h2>
+        	<p>Vectors are typically introduced as representations of quantities that have
+        	direction and magnitude. For example, the velocity of a car is defined by its 
+        	speed and the direction in which the car moves. This could be represented by a vector
+        	whose direction, \(\theta\), is the same as that of the car, and whose length is 
+        	proportional to the speed of the car. An example of such a vector is illustrated 
+        	in the figure below.
+        	</p>
+        	<div class="figure" id="fig:a_vector">
+            	<img src="assets/vector.png" width="450px" alt="An example of a vector"/>
+            	<span class="caption">Figure 1: A vector</span>
+			</div>
+			<p>The above figure also lends itself well to the introduction of some notation. 
+			In the following we'll denote vectors in bold face letters, e.g. \(\mathbf{v}\), 
+			while the <a href="#hed:vector_norms">magnitude</a> of a vector \(\mathbf{v}\) 
+			will be denoted by \(\left\lVert\mathbf{v}\right\rVert\). \(\theta\) is the angle 
+			between the vector and some reference direction.
+			</p>
+			<p>Vectors are also used to specify location and displacement in a mathematical space.
+			An example is given in <a href="#fig:vector_components">figure 2</a> where the vector
+			\(\mathbf{v}\)  represents a displacement in the plane (shown as a bold black arrow) 
+			by \(v_1\) in the first axis and \(v_2\) in the second, i.e. \(\mathbf{v}\) can be seen
+			as directed from the chosen origin to a point on the Cartesian plane with coordinates
+			\((v_1, v_2)\). 
+			</p>
+			<div class="figure" id="fig:vector_components">
+            	<img src="assets/vector_components.png" width="450px" alt="Vector representing a displacement in 2-dimensional space"/>
+            	<span class="caption">Figure 2: Vector representing a displacement in 2-dimensional space</span>
+			</div>
+			<p>Formally a vector is defined as an ordered set of \(n\) numbers that is usually 
+			written as a vertical array, surrounded by square brackets:
+			
+			$$\begin{equation}
+            \label{eq:vector_definition}
+			\mathbf{v} = \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{bmatrix}
+			\end{equation}$$
+			
+			This object is called a <em>column vector</em> while the values in the array 
+			are called the <em>elements</em> of the vector. The <em>size</em> (also referred 
+			to as the <em>order</em>, <em>dimension</em> or <em>length</em>) of the vector is the number of elements 
+			it contains. The vector above, for example, is of size \(n\) and is called an 
+			<em>\(n\)-vector</em>.
+			</p>
+			
+			<p>
+			A horizontal array containing \(n\) numbers is called a <em>row vector</em>, e.g. 
+			
+			$$\begin{equation}
+            \label{eq:row_vector_definition}
+			\mathbf{u} = \begin{bmatrix} u_1 & u_2 & \cdots & u_n \end{bmatrix}
+			\end{equation}$$
+			
+			If the term <em>vector</em> is used without being qualified further, it is understood
+			to be a <em>column vector</em> as defined by \eqref{eq:vector_definition}.
+			</p>
+			
+			<h3 id="hed:vector_transposition">Vector Transposition</h3>
+			<p>Generally speaking, transposition converts row vectors into column vectors and vice versa.
+			A given vector and its transpose form both contains the same elements, in the same order - 
+			only the "orientation" of the vector is different.</p>
+			
+			<p>The <em>transpose</em> of a vector \(\mathbf{v}\) is denoted \(\mathbf{v}^\top\). Consequently 
+			the transpose of the column vector defined in \eqref{eq:vector_definition} is the row vector:
+			
+			$$\begin{equation}
+            \label{eq:transpose_vector}
+			\mathbf{v^\top} = \begin{bmatrix} v_1 & v_2 & \cdots & v_n \end{bmatrix}
+			\end{equation}$$
+			
+			while the transpose of the row vector, \(\mathbf{u}\), given by \eqref{eq:row_vector_definition} 
+			is the column vector:
+			
+			$$\begin{equation}
+            \label{eq:transpose_row_vector}
+			\mathbf{u^\top} = \begin{bmatrix} u_1 \\ u_2 \\ \vdots \\ u_n \end{bmatrix}
+			\end{equation}$$
+			
+			If we transpose a vector twice, we get back the original vector, i.e.
+			
+			$$\begin{equation}
+            \label{eq:double_vector_transpose}
+			\mathbf{(v^\top)^\top} = \mathbf{v}
+			\end{equation}$$
+			</p>
+			
+			<h4 id="vector_transposition_example">Example</h4>
+			<p>
+			As an example, the transpose of \(\mathbf{v} = \begin{bmatrix} 1 \\ -2 \\ 3 \end{bmatrix}\)
+			is \(\mathbf{v^\top} = \begin{bmatrix} 1 & -2 & 3 \end{bmatrix}\) and it's seen that transposing
+			\(\mathbf{v^\top}\) gives us back \(\mathbf{v}\).
+			</p>
+			
+			<h3 id="hed:inner_product">Inner product</h3>
+			<p>The <em>inner product</em>, also referred to as the <em>dot product</em> of two column 
+			vectors \(\mathbf{u}\) and \(\mathbf{v}\), of same order \(n\), is the scalar function:
+			
+			<span class="marginnote"><br/><br/><br/>\(\sum\) (Greek capital sigma) denotes 
+			<a href="https://en.wikipedia.org/wiki/Summation#Capital-sigma_notation" target="_blank">summation</a>.</span>
+			$$\begin{equation}
+            \label{eq:inner_product}
+			\mathbf{u} \cdot \mathbf{v} = \sum\limits_{i=1}^n u_i v_i = u_1 v_1 + u_2 v_2 + \cdots + u_n v_n
+			\end{equation}$$
+			
+			In other words: the dot product of two column vectors is the sum of the pairwise products 
+			of the elements of the two vectors.
+			</p>
+
+			<p>
+			Combined with the discussion on <a href="#hed:vector_transposition">vector transposition</a> we
+			see that the inner product can be written using the following notation:
+			
+			$$\begin{equation}
+            \label{eq:inner_product_transpose_notation}
+			\mathbf{u} \cdot \mathbf{v} = \mathbf{u}^\top \mathbf{v} = \mathbf{v}^\top \mathbf{u}
+			\end{equation}$$
+            </p>
+            
+            <h4 id="hed:inner_product">Example</h4>
+            <p>
+            The dot product of of the two 3-vectors \(\mathbf{u} = \begin{bmatrix} 1 \\ -2 \\ 3 \end{bmatrix}\)
+            and \(\mathbf{v} = \begin{bmatrix} 7 \\ -2 \\ -4 \end{bmatrix}\) is
+
+            $$\begin{align}
+            \mathbf{u} \cdot \mathbf{v} &= \mathbf{u}^\top \mathbf{v} \notag \\
+            &= \begin{bmatrix} 1 & -2 & 3 \end{bmatrix} \begin{bmatrix} 7 \\ -2 \\ -4 \end{bmatrix} \notag \\
+            &= 1\times7 + (-2)\times(-2) + 3\times(-4) \notag \\
+            &= 7 + 4 -12 \notag \\
+            &= -1 \notag
+            \end{align}$$
+
+            </p>
+            
+			<h3 id="hed:vector_norms">Vector Norms</h3>
+			<p>
+
+<!-- 
+<br/>
+\(v_1\)
+<br/>
+\(v_2\)
+<br/>
+\(\mathbf{v}\)
+<br/>
+\(\left\lVert\mathbf{v}\right\rVert\)
+<br/>
+\(\theta\)
+-->
+			</p>
+			
+			
+			
+        	</div>
+        	<div class="margin">
+        	<p>
+        		<a class="margin" href="/deep_learning/activation_functions_in_artificial_neural_networks.html">Activation&nbspFunctions</a>
+        	</p>
+        	<p>
+        		<a class="margin" href="/deep_learning/mathematical_foundations_of_deep_learning.html">Mathematical&nbspFoundations</a>
+        	</p>
+        	<p>
+        		<a class="margin" href="/deep_learning/resources_and_references.html">Resources&nbsp&amp;&nbspreferences</a>
+        	</p>
+        	</div>
+        </div>
+    </body>
+</html>

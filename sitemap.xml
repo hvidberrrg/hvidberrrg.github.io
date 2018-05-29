@@ -11,6 +11,11 @@
     <loc>https://hvidberrrg.github.io/</loc>
   </url>
   
+  <!-- Here come the robots -->
+  <url> 
+    <loc>https://hvidberrrg.github.io/robots.txt</loc>
+  </url>
+  
 <!-- 
 ######################################################################################## 	
 ##  Deep learning and neural networks
@@ -25,7 +30,6 @@
     <loc>https://hvidberrrg.github.io/deep_learning/resources_and_references.html</loc>
   </url>
   
-
 <!-- 
 ######################################################################################## 	
 ##  Activation functions 
@@ -64,5 +68,19 @@
   <url> 
     <loc>https://hvidberrrg.github.io/deep_learning/mathematical_foundations_of_deep_learning.html</loc>
   </url>
+  
+  <!-- Vectors, matrices, and tensors -->
+  <url> 
+    <loc>https://hvidberrrg.github.io/deep_learning/mathematical_foundations/vectors_matrices_and_tensors.html</loc> 
+    <image:image>
+       <image:loc>https://hvidberrrg.github.io/deep_learning/mathematical_foundations/assets/vector.png</image:loc>
+       <image:caption>An example of a vector</image:caption>
+    </image:image>
+    <image:image>
+       <image:loc>https://hvidberrrg.github.io/deep_learning/mathematical_foundations/assets/vector_components.png</image:loc>
+       <image:caption>Vector representing a displacement in 2-dimensional space</image:caption>
+    </image:image>
+  </url>
+
   
 </urlset>
