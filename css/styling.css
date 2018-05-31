@@ -61,6 +61,16 @@ h3 {
     color: #2A5464;
     font-size: 24px;
 	font-family: "Helvetica", "Arial", sans-serif;
+	line-height: 1.2;
+}
+
+h4 {
+    color: #2A5464;
+    font-size: 18px;
+	font-family: "Helvetica", "Arial", sans-serif;
+    font-weight: bold;
+    line-height: 1.2;
+
 }
 
 /* CONTENT AREA */

@@ -80,6 +80,10 @@
        <image:loc>https://hvidberrrg.github.io/deep_learning/mathematical_foundations/assets/vector_components.png</image:loc>
        <image:caption>Vector representing a displacement in 2-dimensional space</image:caption>
     </image:image>
+    <image:image>
+       <image:loc>https://hvidberrrg.github.io/deep_learning/mathematical_foundations/assets/scalar_projection.png</image:loc>
+       <image:caption>Scalar projection of one vector onto another</image:caption>
+    </image:image>
   </url>
 
   

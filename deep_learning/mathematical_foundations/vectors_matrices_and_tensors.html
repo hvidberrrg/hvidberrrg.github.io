@@ -72,12 +72,12 @@
         	in the figure below.
         	</p>
         	<div class="figure" id="fig:a_vector">
-            	<img src="assets/vector.png" width="450px" alt="An example of a vector"/>
+            	<img src="assets/vector.png" alt="An example of a vector"/>
             	<span class="caption">Figure 1: A vector</span>
 			</div>
 			<p>The above figure also lends itself well to the introduction of some notation. 
 			In the following we'll denote vectors in bold face letters, e.g. \(\mathbf{v}\), 
-			while the <a href="#hed:vector_norms">magnitude</a> of a vector \(\mathbf{v}\) 
+			while the <a href="#hed:vector_norm">magnitude</a> of a vector \(\mathbf{v}\) 
 			will be denoted by \(\left\lVert\mathbf{v}\right\rVert\). \(\theta\) is the angle 
 			between the vector and some reference direction.
 			</p>
@@ -89,7 +89,7 @@
 			\((v_1, v_2)\). 
 			</p>
 			<div class="figure" id="fig:vector_components">
-            	<img src="assets/vector_components.png" width="450px" alt="Vector representing a displacement in 2-dimensional space"/>
+            	<img src="assets/vector_components.png" alt="Vector representing a displacement in 2-dimensional space"/>
             	<span class="caption">Figure 2: Vector representing a displacement in 2-dimensional space</span>
 			</div>
 			<p>Formally a vector is defined as an ordered set of \(n\) numbers that is usually 
@@ -192,13 +192,69 @@
             &= 7 + 4 -12 \notag \\
             &= -1 \notag
             \end{align}$$
-
             </p>
             
-			<h3 id="hed:vector_norms">Vector Norms</h3>
+            <h4 id="geometric_definition_of_dot_product">Geometric definition of the vector dot product</h4>
+            <p>
+            In <a href="https://en.wikipedia.org/wiki/Euclidean_space" target="_blank">Euclidean space</a> a vector 
+            is an object that possesses both a direction and a magnitude. Such a vector, \(\mathbf{v}\), is typically 
+            pictured as an arrow whose length represents the magnitude, \(\left\lVert\mathbf{v}\right\rVert\), of the
+            vector. The direction of the vector is given by the direction in which the arrow points.
+            </p>
+            <p>
+            Suppose two vectors \(\mathbf{u}\) and \(\mathbf{v}\) are separated by an angle \(\theta\). The 
+            geometric definition of their <em>inner product</em> is defined as
+             $$\begin{equation}
+            \label{eq:inner_product_geometric_definition}
+			\mathbf{u} \cdot \mathbf{v} = \left\lVert\mathbf{u}\right\rVert \left\lVert\mathbf{v}\right\rVert \cos(\theta)
+			\end{equation}$$
+			
+			where \(\left\lVert\mathbf{u}\right\rVert\) and \(\left\lVert\mathbf{v}\right\rVert\) are the 
+            magnitudes of \(\mathbf{u}\) and \(\mathbf{v}\) respectively.
+            </p>
+            <p>
+            In other words, the dot product of two vectors are defined geometrically as the size of the scalar
+            projection of one of the vectors onto the other, multiplied with the size of the other vector (the one
+            that is projected onto), as illustrated in <a href="#fig:scalar_projection">figure 3</a>.
+            </p>
+            <div class="figure" id="fig:scalar_projection">
+            	<img src="assets/scalar_projection.png" alt="Scalar projection of one vector onto another"/>
+            	<span class="caption">Figure 3: Scalar projection of one vector onto another</span>
+			</div>
+			<p>
+			Intuitively \eqref{eq:inner_product_geometric_definition} says something about how "well aligned"  
+			two vectors are. If they are orthogonal, then \(\cos(\theta)\) is \(0\) and consequently their inner
+			product is also \(0\). If the vectors are contradirectional - i.e. pointing in opposite directions -
+			 \(\cos(\theta)\)  assumes the value \(-1\). At the other extreme,  \(\cos(\theta)\) assumes the value
+			 \(1\) for codirectional vectors, i.e. vectors pointing in the same direction. 
+			</p>
+            <p>As a given vector is obviously codirectional with respect to itself, then \eqref{eq:inner_product_geometric_definition}
+            implies that the inner product of a vector \(\mathbf{v}\) with itself is
+            
+             $$\begin{equation}
+            \label{eq:inner_product_of_vector_with_itself}
+			\mathbf{v} \cdot \mathbf{v} = \left\lVert\mathbf{v}\right\rVert ^2
+			\end{equation}$$
+			
+			Which right away gives us the Euclidean length of \(\mathbf{v}\) as
+			<span class="marginnote"><br/><br/>The Pythagorean theorem applied to the vector in 
+			<a href="#fig:vector_components">figure 2</a> should tell you the same</span>
+			$$\begin{equation}
+            \label{eq:euclidean_length_of_vector}
+			\left\lVert\mathbf{v}\right\rVert = \sqrt{\mathbf{v} \cdot \mathbf{v}}
+			\end{equation}$$
+			
+			The Euclidean length is just one way of measuring the "magnitude" of a vector, though.
+			So in the next section we'll have a closer look at the general concept of the
+			<a href="#hed:vector_norm">vector norm</a>
+            </p>
+            
+            
+			<h3 id="hed:vector_norm">Vector Norm</h3>
 			<p>
 
-<!-- 
+
+<!--
 <br/>
 \(v_1\)
 <br/>
@@ -209,10 +265,28 @@
 \(\left\lVert\mathbf{v}\right\rVert\)
 <br/>
 \(\theta\)
+<br/>
+\(\mathbf{u}\)
+<br/>
+\(\left\lVert\mathbf{u}\right\rVert\)
+<br/>
+\(\left\lVert\mathbf{u}\right\rVert\left\lVert\mathbf{v}\right\rVert\cos(\theta)\)
+<br/>
+\(\left\lVert\mathbf{u}\right\rVert\cos(\theta)\)
 -->
 			</p>
 			
-			
+			<h2 id="hed:references">References</h2>
+			<p>
+			<ul class="bibliography">
+        		<li id="Boyd2018">[Boyd2018]&nbsp;&nbsp;&nbsp;Stephen Boyd &amp; Lieven Vandenberghe,
+        		<a href="https://web.stanford.edu/~boyd/vmls/vmls.pdf"><cite>Introduction to Applied Linear Algebra - 
+        		Vectors, Matrices, and Least Squares</cite></a>,
+        		Cambridge University Press, <time datetime='2018'>2018</time>
+        		</li>
+	            
+			</ul>
+			</p>
 			
         	</div>
         	<div class="margin">
