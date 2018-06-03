@@ -119,6 +119,7 @@
 			to be a <em>column vector</em> as defined by \eqref{eq:vector_definition}.
 			</p>
 			
+			
 			<h3 id="hed:vector_transposition">Vector Transposition</h3>
 			<p>Generally speaking, transposition converts row vectors into column vectors and vice versa.
 			A given vector and its transpose form both contains the same elements, in the same order - 
@@ -154,6 +155,7 @@
 			is \(\mathbf{v^\top} = \begin{bmatrix} 1 & -2 & 3 \end{bmatrix}\) and it's seen that transposing
 			\(\mathbf{v^\top}\) gives us back \(\mathbf{v}\).
 			</p>
+			
 			
 			<h3 id="hed:inner_product">Inner product</h3>
 			<p>The <em>inner product</em>, also referred to as the <em>dot product</em> of two column 
@@ -237,8 +239,8 @@
 			\end{equation}$$
 			
 			Which right away gives us the Euclidean length of \(\mathbf{v}\) as
-			<span class="marginnote"><br/><br/>The Pythagorean theorem applied to the vector in 
-			<a href="#fig:vector_components">figure 2</a> should tell you the same</span>
+			<span class="marginnote"><br/><br/>Note that the Pythagorean theorem applied to the vector in 
+			<a href="#fig:vector_components">figure 2</a> gives the same result.</span>
 			$$\begin{equation}
             \label{eq:euclidean_length_of_vector}
 			\left\lVert\mathbf{v}\right\rVert = \sqrt{\mathbf{v} \cdot \mathbf{v}}
@@ -252,6 +254,64 @@
             
 			<h3 id="hed:vector_norm">Vector Norm</h3>
 			<p>
+			A mathematical norm is a generalization of the general concept of length or size,
+			i.e. a norm is a function that assigns a positive magnitude or length to each
+			vector in a vector space (except for the zero vector that's assigned a magnitude 
+			of \(0\). Formally we define a <em>vector norm</em> as a function
+			\(\left\lVert \cdot \right\rVert \colon \mathbb{R}^{n} \to \mathbb{R}\)
+			that has the following properties
+			
+			<span class="marginnote"><br/><br/><br/><br/>
+			\(\left\lvert \alpha \right\rvert\) denotes the <em id="absolute_value_definition">absolute value</em> of \(\alpha\).
+			For any \(\alpha \in \mathbb{R}\) the absolute value of \(\alpha\) is defined as
+			\(\left\lvert \alpha \right\rvert = \begin{cases} \alpha \text{, if } \alpha \ge 0 \\
+			-\alpha \text{, if } \alpha \lt 0
+			\end{cases} \) <br/>
+			e.g. \(\left\lvert 42 \right\rvert = 42\) and \(\left\lvert -42 \right\rvert = 42\).<br/>
+			Alternatively the absolute value of \(\alpha\) can be defined as
+			\(\left\lvert \alpha \right\rvert = \sqrt{\alpha ^2}\)
+			</span>
+			
+			<ol>
+			<li>\(\left\lVert \mathbf{v} \right\rVert \ge 0\) for any vector \(\mathbf{v} \in \mathbb{R}^{n}\),
+			and \(\left\lVert \mathbf{v} \right\rVert = 0\) if and only if \(\mathbf{v} = 0\) </li>
+			
+			<li>\(\left\lVert \alpha \mathbf{v} \right\rVert = \left\lvert \alpha \right\rvert \left\lVert \mathbf{v} \right\rVert\)
+			for any vector \(\mathbf{v} \in \mathbb{R}^{n}\) and any scalar \(\alpha \in \mathbb{R}\)</li>
+			
+			<li>\(\left\lVert \mathbf{u} + \mathbf{v} \right\rVert \le \left\lVert \mathbf{u} \right\rVert + \left\lVert \mathbf{v} \right\rVert\)
+			for any vectors \(\mathbf{u}, \mathbf{v} \in \mathbb{R}^{n}\)
+			</li>
+			</ol>
+			Where the last property is called the <em>triangle inequality</em>.
+			</p>
+			
+			<p>Defining a norm for a vector space allows us to characterize any given vector by
+			a single, positive scalar value, i.e. the norm gives us an easy way of comparing vectors
+			in the same space. The "trouble" with norms, though, is that there are so many of them
+			and we need to choose one that's appropriate in the sense that it represents the entities of
+			the problem we are trying to solve, and that the norm is computable at a tolerable cost.
+			</p>
+			
+			<h4 id="hed:p-norm">The <i>p</i>-norm</h4>
+			<p>The class of \(p\)-norms is a generalization of the Euclidean length of a vector \eqref{eq:euclidean_length_of_vector}
+			and has many applications in mathematics, physics, and computer science.
+			 The \(p\)-norm is also known as the \(L^p\)-norm, and is for any real number \(p \ge 1\) defined by
+			 
+			$$\begin{equation}
+            \label{eq:p-norm_definition}
+			\left\lVert \mathbf{v} \right\rVert _p = 
+			\left(\sum\limits_{i=1}^n \left\lvert v_i \right\rvert ^p \right) ^\frac{1}{p} 
+			\end{equation}$$
+			
+			where \(\mathbf{v} \in \mathbb{R}^{n}\) and \(\left\lvert v_i \right\rvert\)
+			is the <a href="#absolute_value_definition">absolute value</a>
+			of the \(i\)th element of the vector \(\mathbf{v}\).
+
+
+			<!--
+			Vector norm: http://www.math.usm.edu/lambers/mat610/sum10/lecture2.pdf
+			-->
 
 
 <!--
@@ -280,12 +340,24 @@
 			<p>
 			<ul class="bibliography">
         		<li id="Boyd2018">[Boyd2018]&nbsp;&nbsp;&nbsp;Stephen Boyd &amp; Lieven Vandenberghe,
-        		<a href="https://web.stanford.edu/~boyd/vmls/vmls.pdf"><cite>Introduction to Applied Linear Algebra - 
+        		<a href="https://web.stanford.edu/~boyd/vmls/vmls.pdf" target="_blank"><cite>Introduction to Applied Linear Algebra - 
         		Vectors, Matrices, and Least Squares</cite></a>,
         		Cambridge University Press, <time datetime='2018'>2018</time>
         		</li>
+        		
+        		<li id="Lambers2010">[Lambers2010]&nbsp;&nbsp;&nbsp;Jim Lambers,
+        		<a href="http://www.math.usm.edu/lambers/mat610/sum10/lecture2.pdf" target="_blank">
+        		<cite>Lecture 2 Notes (on Numerical Linear Algebra)</cite></a>,
+        		The University of Southern Mississippi, <time datetime='2010'>2010</time>
+        		</li>
+        		
+        		<li id="Weisstein">[Weisstein]&nbsp;&nbsp;&nbsp;Eric W. Weisstein,
+        		<a href="http://mathworld.wolfram.com/VectorNorm.html" target="_blank"><cite>Vector Norm</cite></a>,
+        		From <em><a href="http://mathworld.wolfram.com/" target="_blank">MathWorld</a></em> - A Wolfram Web Resource.
+        		</li>
 	            
 			</ul>
+	 
 			</p>
 			
         	</div>
