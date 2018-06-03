@@ -257,7 +257,7 @@
 			A mathematical norm is a generalization of the general concept of length or size,
 			i.e. a norm is a function that assigns a positive magnitude or length to each
 			vector in a vector space (except for the zero vector that's assigned a magnitude 
-			of \(0\). Formally we define a <em>vector norm</em> as a function
+			of \(0\)). Formally we define a <em>vector norm</em> as a function
 			\(\left\lVert \cdot \right\rVert \colon \mathbb{R}^{n} \to \mathbb{R}\)
 			that has the following properties
 			
@@ -306,7 +306,29 @@
 			
 			where \(\mathbf{v} \in \mathbb{R}^{n}\) and \(\left\lvert v_i \right\rvert\)
 			is the <a href="#absolute_value_definition">absolute value</a>
-			of the \(i\)th element of the vector \(\mathbf{v}\).
+			of the \(i\)th element of the vector \(\mathbf{v}\). It can indeed be shown
+			that \(\left\lVert \cdot \right\rVert _p\) defines a vector norm, but it's 
+			beyond the scope of these notes.
+			</p>
+			
+			<h5 id="hed:L1-norm">The \(L^1\)-norm</h5>
+			<p>Setting \(p=1\) gives us the \(L^1\)-norm
+			$$\begin{equation}
+            \label{eq:1-norm_definition}
+			\left\lVert \mathbf{v} \right\rVert _1 = 
+			\left\lvert v_1 \right\rvert + \left\lvert v_2 \right\rvert + \cdots + \left\lvert v_n \right\rvert 
+			\end{equation}$$
+			i.e. the \(L^1\)-norm for a given vector is the sum of the absolute values of all 
+			elements of the vector. The \(L^1\)-norm is also known as the <a target="_blank"
+			href="https://en.wikipedia.org/wiki/Taxicab_geometry">taxicab norm</a> since an
+			analogy is offered by taxies driving in a grid street plan (like e.g. that of 
+			Manhattan) - such taxies should not measure distance in terms of the length of 
+			the straight line between their starting point and destination, but in terms 
+			of the rectilinear distance* 
+			<span class="marginnote">* The <em>rectilinear distance</em> is defined as the 
+			distance between two points measured along axes at right angles.</span>
+			between the two points.
+			
 
 
 			<!--
@@ -350,12 +372,6 @@
         		<cite>Lecture 2 Notes (on Numerical Linear Algebra)</cite></a>,
         		The University of Southern Mississippi, <time datetime='2010'>2010</time>
         		</li>
-        		
-        		<li id="Weisstein">[Weisstein]&nbsp;&nbsp;&nbsp;Eric W. Weisstein,
-        		<a href="http://mathworld.wolfram.com/VectorNorm.html" target="_blank"><cite>Vector Norm</cite></a>,
-        		From <em><a href="http://mathworld.wolfram.com/" target="_blank">MathWorld</a></em> - A Wolfram Web Resource.
-        		</li>
-	            
 			</ul>
 	 
 			</p>
