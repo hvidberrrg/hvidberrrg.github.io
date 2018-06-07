@@ -287,7 +287,7 @@
 			intuitive understanding of the triangle inequality, consider the case where you 
 			are adding two vectors in 2-dimensional space as illustrated in <a href="#fig:vector_addition">
 			figure 4</a>. It should be quite obvious that the (Euclidean) length of the sum of 
-			the two vectors are always less than or equal to the sum of the length of the individual
+			the two vectors is always less than or equal to the sum of the length of the individual
 			vectors.
 			
 			<div class="figure" id="fig:vector_addition">
@@ -381,14 +381,14 @@
  			
  			<h4 id="vector_norm_example">Example</h4>
  			<p>The table below summarizes the vector norms discussed above (plus a couple more :-).
- 			 Furthermore the values of the norms are given for the example row vector 
+ 			Furthermore the values of the norms are given for the example row vector 
  			\(\mathbf{v} = \begin{bmatrix} 1 & 2 & 3 \end{bmatrix}\).
  			<table>
             	<thead>
             		<tr>
             			<th>Name</th>
             			<th>Symbol</th>
-            			<th>Value</th>
+            			<th>Value for v</th>
             		</tr>
             	</thead>
             	<tbody>
@@ -424,12 +424,47 @@
             		</tr>
             	</tbody>
             </table>
-            From these examples it is also evident that the values of
-            \(\left\lVert \cdot \right\rVert _p\) converges fairly quickly to those of
-            \(\left\lVert \cdot \right\rVert _\infty\) as the value of \(p\) grows.
+            From these examples it is also evident that \(\left\lVert \cdot \right\rVert _p\) 
+            converges fairly quickly to \(\left\lVert \cdot \right\rVert _\infty\) as the 
+            value of \(p\) grows.
             </p>
-
 			<p>
+			To gain a better intuition for the \(L^p\)-norms it might be helpful to consider 
+			how their unit circles are rendered in 2-dimensional space. A <em>unit circle</em> 
+			is centered at the origin of the coordinate system \((0, 0)\) and has a radius of 
+			\(1\), i.e. all points on the circumference have a distance of \(1\) from the origin. 
+			Under the Euclidean norm (the \(L^2\)-norm) this renders as the well-known "circular 
+			circle", but for the other norms the unit circle looks quite different.
+			</p>
+			
+			<span class="marginnote"><br/>
+			The illustration of <a href="#fig:unit_circles_in_various_p-norms">unit circles in various 
+			<em>p</em>-norms</a> is courtesy of 
+			<a href="https://commons.wikimedia.org/wiki/File:Vector-p-Norms_qtl1.svg"
+			target="_blank">Wikimedia Commons</a> and is distributed under a
+			<a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en" target="_blank">
+			Creative Commons Attribution-ShareAlike</a> license.
+			</span>
+			<div class="figure" id="fig:unit_circles_in_various_p-norms">
+            	<img src="assets/unit_circles_in_various_p-norms.png" alt="Unit circles in various p-norms"/>
+            	<span class="caption">Figure 5: Unit circles in various p-norms</span>
+			</div>
+			<p>
+			
+			<p>The formula for the unit circle in 2-dimensional \(L^1\)-norm geometry is |
+			\(\left\lvert x \right\rvert + \left\lvert y \right\rvert = 1\),
+			i.e. the \(L^1\) unit circle is a square with sides oriented at 45° angles to 
+			the axes of the coordinate system. Similarly the unit circle in \(L^\infty\) geometry 
+			is also a square, but with sides parallel to the coordinate axes (i.e. the \(L^1\)-norm
+			can be changed into the \(L^\infty\)-norm by a 45° rotation and a suitable scaling). 
+			This is illustrated in <a href="#fig:unit_circles_in_various_p-norms">figure 5</a>
+			 above along with superelliptic unit circles in different <em>p</em>-norms. 
+			 </p>
+			 
+			 <p>In 3-dimensional space the <em>unit ball</em> for the \(L^1\)-norm is a octahedron, 
+			 for the \(L^\infty\)-norm a cube, and for the \(L^2\)-norm the unit ball is the 
+			 well-known sphere.
+			</p>
 <!-- 
 <br/>
 \(v_1\)

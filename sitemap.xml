@@ -88,6 +88,10 @@
        <image:loc>https://hvidberrrg.github.io/deep_learning/mathematical_foundations/assets/vector_addition.png</image:loc>
        <image:caption>Illustrating the triangle inequality in 2-dimensional space</image:caption>
     </image:image>
+    <image:image>
+       <image:loc>https://hvidberrrg.github.io/deep_learning/mathematical_foundations/assets/unit_circles_in_various_p-norms.png</image:loc>
+       <image:caption>Unit circles in various p-norms</image:caption>
+    </image:image>
   </url>
   
 </urlset>
