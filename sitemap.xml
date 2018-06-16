@@ -62,6 +62,44 @@
 
 <!-- 
 ######################################################################################## 	
+##  Optimization and Backpropagation
+########################################################################################    
+-->
+  <url> 
+    <loc>https://hvidberrrg.github.io/deep_learning/optimization_and_backpropagation.html</loc>
+  </url>
+  
+  <!-- Gradient descent -->
+  <url> 
+    <loc>https://hvidberrrg.github.io/deep_learning/optimization_and_backpropagation/gradient_descent.html</loc>
+    <image:image>
+       <image:loc>https://hvidberrrg.github.io/deep_learning/optimization_and_backpropagation/assets/gradient_vector_field_of_a_function.png</image:loc>
+       <image:caption>Example function and its gradient vector field</image:caption>
+    </image:image>
+    <image:image>
+       <image:loc>https://hvidberrrg.github.io/deep_learning/optimization_and_backpropagation/assets/gradient_descent_example.png</image:loc>
+       <image:caption>Example of gradient descent</image:caption>
+    </image:image>
+    <image:image>
+       <image:loc>https://hvidberrrg.github.io/deep_learning/optimization_and_backpropagation/assets/gradient_descent_small_steps.png</image:loc>
+       <image:caption>Gradient descent using a small step size</image:caption>
+    </image:image>
+    <image:image>
+       <image:loc>https://hvidberrrg.github.io/deep_learning/optimization_and_backpropagation/assets/gradient_descent_efficient_step_size.png</image:loc>
+       <image:caption>Gradient descent with an "efficient" step size</image:caption>
+    </image:image>
+    <image:image>
+       <image:loc>https://hvidberrrg.github.io/deep_learning/optimization_and_backpropagation/assets/gradient_descent_large_steps.png</image:loc>
+       <image:caption>Gradient descent using too large a step size</image:caption>
+    </image:image>
+    <image:image>
+       <image:loc>https://hvidberrrg.github.io/deep_learning/optimization_and_backpropagation/assets/multiple_minima.png</image:loc>
+       <image:caption>Function with multiple minima</image:caption>
+    </image:image>
+  </url>
+
+<!-- 
+######################################################################################## 	
 ##  Mathematical Foundations of Deep Learning
 ########################################################################################    
 -->
