@@ -119,6 +119,44 @@
 			to be a <em>column vector</em> as defined by \eqref{eq:vector_definition}.
 			</p>
 			
+			<h3 id="hed:vector_addition_and_scalar_multiplication">Vector addition and scalar multiplication</h3>
+			<p>If \(\mathbf{u}\) and \(\mathbf{v}\) are \(n\)-dimensional vectors, their sum is obtained by 
+			adding the corresponding elements of the two vectors
+			
+			$$\begin{equation}
+            \label{eq:vector_addition}
+			\mathbf{u} + \mathbf{v} = \begin{bmatrix} u_1 + v_1 \\ u_2 + v_2 \\ \vdots \\ u_n + v_n \end{bmatrix}
+			\end{equation}$$
+			
+			Geometrically <em>vector addition</em> can be visualized in two dimensions as simply 
+			<a href ="#fig:vector_addition">appending one vector to the end of another</a>. Note that 
+			\(\mathbf{u} + \mathbf{v} = \mathbf{v} + \mathbf{u}\).
+			</p>
+			
+			<p>Multiplying a vector \(\mathbf{v}\) by a number (i.e a <em>scalar</em>) \(k\) is defined as
+			multiplying each element of the vector by \(k\)
+			
+			$$\begin{equation}
+            \label{eq:vector_scalar_multiplication}
+			k \mathbf{v} = \begin{bmatrix} k v_1 \\ k v_2 \\ \vdots \\ k v_n \end{bmatrix}
+			\end{equation}$$
+			
+			<em>Scalar multiplication</em> can be visualized geometrically as changing the length of the vector. 
+			If the scalar is positive then the direction of the resulting vector is not changed; if the scalar
+			is negative the direction of the vector is reversed. Say for example we multiply a vector by \(k=-2\), 
+			then the result is a vector of twice the length (i.e. the vector has been scaled by a factor defined by 
+			the <em>scalar</em>), pointing in the opposite direction of the vector we started out with. 
+			</p>
+			
+			<p><em>Vector subtraction</em> can be defined in terms of vector addition and scalar multiplication
+			
+			$$\begin{equation}
+            \label{eq:vector_subtraction}
+			\mathbf{u} - \mathbf{v} = \mathbf{u} + (-1) \mathbf{v} = \begin{bmatrix} u_1 - v_1 \\ u_2 - v_2 \\ \vdots \\ u_n - v_n \end{bmatrix}
+			\end{equation}$$
+			
+			i.e. \(\mathbf{u} - \mathbf{v}\) is the addition of \(\mathbf{u}\) and a reversed copy of \(\mathbf{v}\).
+			</p>
 			
 			<h3 id="hed:vector_transposition">Vector Transposition</h3>
 			<p>Generally speaking, transposition converts row vectors into column vectors and vice versa.
