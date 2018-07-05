@@ -59,6 +59,19 @@
        <image:caption>The bell-shaped curve of the derivative of the sigmoid function (a.k.a. the logistic function)</image:caption>
     </image:image>
   </url>
+  
+  <!-- The unit step function -->
+  <url> 
+    <loc>https://hvidberrrg.github.io/deep_learning/activation_functions/unit_step_function.html</loc> 
+    <image:image>
+       <image:loc>https://hvidberrrg.github.io/deep_learning/activation_functions/assets/step_function.png</image:loc>
+       <image:caption>The unit step function</image:caption>
+    </image:image>
+    <image:image>
+       <image:loc>https://hvidberrrg.github.io/deep_learning/activation_functions/assets/step_function_non_zero_threshold.png</image:loc>
+       <image:caption>The unit step function with a non-zero threshold</image:caption>
+    </image:image>
+  </url>
 
 <!-- 
 ######################################################################################## 	

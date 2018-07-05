@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name='description' content='A description of the unit step function (a.k.a. the Heaviside step function) is given' />
+        <meta name='keywords' content='Unit step function, Heaviside step function' >
+        <title>The unit step function (a.k.a. the Heaviside step function)</title>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112452759-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-112452759-1');
+        </script>
+        <!-- MathJax -->
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+            TeX: { equationNumbers: { autoNumber: "AMS" } }
+            });
+        </script>
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+        </script>
+        <!-- Styling -->
+        <link href="../../css/styling.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="header">
+            <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+  				<li property="itemListElement" typeof="ListItem">
+  					<a href="../../index.html" property="item" typeof="WebPage">
+  						<span property="name">Hvidberrrg@GitHub</span>
+  					</a>
+  					<meta property="position" content="1">
+  				</li>
+  				<li property="itemListElement" typeof="ListItem">
+  					<a href="../../deep_learning_and_neural_networks.html" property="item" typeof="WebPage">
+  						<span property="name">Deep learning</span>
+  					</a>
+  					<meta property="position" content="2">
+  				</li>
+  				<li property="itemListElement" typeof="ListItem">
+  					<a href="../activation_functions_in_artificial_neural_networks.html" property="item" typeof="WebPage">
+  						<span property="name">Activation functions</span>
+  					</a>
+  					<meta property="position" content="3">
+  				</li>
+  				<li property="itemListElement" typeof="ListItem">
+  					<a href="#" property="item" typeof="WebPage">
+  						<span property="name">Unit step function</span>
+  					</a>
+  					<meta property="position" content="4">
+  				</li>
+			</ol>
+			</ol>
+            <h1>The unit step function (a.k.a. the Heaviside step function)</h1>
+        </div>
+        <div class="content">
+        	<div class="bodytext">
+        	<p>The <em>unit step function</em> models the on/off behavior of a switch. It is also known as the 
+        	<em>Heaviside function</em> named after <a target="_blank" href="https://en.wikipedia.org/wiki/Oliver_Heaviside">
+        	Oliver Heaviside</a>, an English electrical engineer, mathematician, and physicist.
+        	</p>
+        	
+        	<p>The unit step function is a discontinuous function that can be used to model e.g. when voltage is switched 
+        	on or off in an electrical circuit, or when a neuron becomes active (fires).  
+        	</p>
+        	
+        	<p>The domain of the unit step function is the set of all real numbers, \(\mathbb{R}\),
+            and it's defined as:
+            
+            <span class="marginnote"><br/><br/>Sometimes the unit step function is defined as \(u(x) = \begin{cases} 
+            0 \text{, if } x \lt 0 \\
+            \frac{1}{2} \text{, if } x = 0 \\
+			1 \text{, if } x \gt 0
+			\end{cases}\)</br>
+			in which case the graph has rotational symmetry. But for our need the pure on/off behaviour suffices.
+            </span>
+        	$$\begin{equation}
+        	\label{eq:unit_step_function}
+            u(x) = \begin{cases} 
+            0 \text{, if } x \lt 0 \\
+			1 \text{, if } x \ge 0
+			\end{cases}  
+			\end{equation}$$
+			
+			Moving along the \(x\)-axis from negative infinity to positive infinity, the unit step function assumes 
+			a constant value of \(0\) until the <em>threshold</em> input, \(x=0\), is reached, after which the function 
+			assumes a constant value of \(1\). This is illustrated in <a href="#fig:unit_step_function">figure 1</a>.
+	
+			<div class="figure" id="fig:unit_step_function">
+            	<img src="assets/step_function.png" alt="The unit step function"/>
+            	<span class="caption">Figure 1: The unit step function</span>
+			</div>
+			</p>
+			
+			<h2 id=""hed:shifted_unit_step_function>Shifted unit step function</h2>
+			<p>If you instead want the unit step function to "switch" at a different threshold value, \(t\), then the function
+			can be shifted (or delayed) to this other threshold. The easiest way to see this is to insert the shifted value
+			\(x' = x - t\) in equation \eqref{eq:unit_step_function}, which gives us
+			
+			$$\begin{equation}
+        	\label{eq:shifted_unit_step_function}
+            u_t(x) = u(x - t) = \begin{cases} 
+            0 \text{, if } x \lt t \\
+			1 \text{, if } x \ge t
+			\end{cases}  
+			\end{equation}$$
+			
+			<a href="#fig:step_function_non_zero_threshold">Figure 2</a> illustrates a unit step function shifted to a 
+			non-zero threshold value, \(t = 42\).
+			
+			<div class="figure" id="fig:step_function_non_zero_threshold">
+            	<img src="assets/step_function_non_zero_threshold.png" alt="The unit step function with a non-zero threshold"/>
+            	<span class="caption">Figure 2: The unit step function with a non-zero threshold</span>
+			</div>
+			</p>
+			
+			<h2 id="hed:unit_step_function_derivative">The derivative of the unit step function</h2>
+			<p>As the unit step function is discontinuous at its threshold value, the function is not differentiable.</p>
+			
+			<p>This is also relatively easy to see from equation \eqref{eq:unit_step_function}, where approaching \(x = 0\) from 
+			the left (the negative side) of the \(x\)-axis gives us
+			
+			$$\begin{equation}
+            \lim\limits_{h \to 0^-} \frac{u(0+h)-u(0)}{h} = \lim\limits_{h \to 0^-} \frac{0-1}{h} = \infty
+            \end{equation}$$
+            
+            meaning that the unit step function is not differentiable at the point of its discontinuity.
+			</p>
+			
+			<p>That being said, the derivative of the unit step function \eqref{eq:unit_step_function} at all other points 
+			than its threshold, \(x=0\), is also pretty boring, as it assumes the constant value of \(0\). That is
+			
+			$$\begin{equation}
+            \label{eq:unit_step_function_derivative}
+            \frac{du(x)}{dx} = 0 \text{, for } x \ne 0
+            \end{equation}$$ 
+            
+            This also means that the unit step function is useless in connection with backpropagation that relies on the derivative
+            of its <a href="../activation_functions_in_artificial_neural_networks.html">activation function</a> for weight 
+            adjustments, i.e. there would be no change for any value other than zero (where the change would be infinite).
+			</p>
+			
+			<p>Still, the unit step function is included here as it plays an important role in the description of perceptrons.
+			</p>
+        	</div>
+        	
+        	<div class="margin">
+        	<p>
+        		<a class="margin" href="/deep_learning/activation_functions_in_artificial_neural_networks.html">Activation&nbsp;Functions</a>
+        	</p>
+        	<p>
+        		<a class="margin" href="/deep_learning/optimization_and_backpropagation.html">Optimization&nbsp;&amp;&nbsp;backpropagation</a>
+        	</p>
+        	<p>
+        		<a class="margin" href="/deep_learning/mathematical_foundations_of_deep_learning.html">Mathematical&nbsp;Foundations</a>
+        	</p>
+        	<p>
+        		<a class="margin" href="/deep_learning/resources_and_references.html">Resources&nbsp;&amp;&nbsp;references</a>
+        	</p>
+        	</div>
+        	
+        </div>
+    </body>
+</html>
